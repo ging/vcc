@@ -5,6 +5,7 @@ class AddVideoTypeToAgendaEntry < ActiveRecord::Migration
     #for "in person" events this param will be AgendaEntry::VIDEO_TYPE.index(:embedded) or AgendaEntry::VIDEO_TYPE.index(:none)
     #for "automatic" events we change discard_automatic_video to video_type = AgendaEntry::VIDEO_TYPE.index(:embedded)
     #and leave with video_type = AgendaEntry::VIDEO_TYPE.index(:automatic) the others
+=begin
     AgendaEntry.reset_column_information
     AgendaEntry.record_timestamps=false
     
@@ -23,7 +24,7 @@ class AddVideoTypeToAgendaEntry < ActiveRecord::Migration
         a.update_attribute(:video_type,AgendaEntry::VIDEO_TYPE.index(:none))
       end
     }
-    
+=end    
     remove_column :agenda_entries, :discard_automatic_video    
   end
 

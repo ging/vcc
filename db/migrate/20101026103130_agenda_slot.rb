@@ -4,6 +4,6 @@ class AgendaSlot < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :agendass, :slot
+    remove_column :agendas, :slot
   end
 end
