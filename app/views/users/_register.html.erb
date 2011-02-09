@@ -1,3 +1,16 @@
+<%content_for :javascript do%>
+  accept_policy_and_send = function(){
+    if($("#policy_accepted").is(':checked'))  {
+	   $("#new_user").submit();
+	}
+	else{
+	  alert("<%=t("policy.please")%>");
+	}
+  };
+ 
+  
+<%end%>
+
 <div id="login_div"  class="blue_title">
   <% if error_messages_for(:user).blank? %>
     <div id="lightbox-logo"><span><%= image_tag("bola_global_peque.png",:class=>"icon")%><%=t('vcc_registration')%></span></div>
@@ -12,11 +25,14 @@
 			
 			<div id="captcha"><%= show_simple_captcha(:object=> :user) %> </div>
 			
+			<div id="priv_policy"><input type="checkbox" id="policy_accepted" name="policy_accepted" value="0" /><%=t('policy.check_message')%><%=link_to t('policy.check_message_2'), policy_path, :target=>'_blank'%><%=t('policy.check_message_3')%><%=link_to t('policy.check_message_4'), terms_path, :target=>'_blank'%>.</div>
+			
 			<div class="button">
-				<button type="submit" class="basic_button blue_button"><%=t("button.accept")%></button>
+				<%=link_to_function t("button.accept"), "accept_policy_and_send()", :class=>"accept_button_padding basic_button blue_button"%>
 				<span><%= link_to t('login'), login_path, :class => "login_lightbox_link" %> | <%= link_to t('user.lost_password'), lost_password_path, :class => "login_lightbox_link" %></span>
 			</div>
-			* <%= t('mandatory_field')%><br>
+			<br/>
+			<span id="mandatory_field">* <%= t('mandatory_field')%></span><br>
 			<div><%= t('register.confirmation')%></div>
 		<% end -%>
 	</div>

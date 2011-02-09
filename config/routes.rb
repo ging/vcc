@@ -114,7 +114,10 @@ ActionController::Routing::Routes.draw do |map|
   map.perf_indicator 'perf_indicator', :controller => 'frontpage', :action => 'performance'
   map.help 'help', :controller => 'help', :action => 'index'
   map.faq 'faq', :controller => 'faq', :action => 'index'
-
+  map.policy 'policy', :controller => 'policy', :action => 'index'
+  map.terms 'terms', :controller => 'terms', :action => 'index'
+  map.legal_notice 'legal_notice', :controller => 'legal_notice', :action => 'index'
+  
   # #######################################################################
   # CMSplugin
   #

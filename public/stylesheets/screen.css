@@ -139,6 +139,8 @@ a.big_button span{
 
 button.big_button{padding:3px 18px 3px 18px;width:230px;}
 
+a.accept_button_padding{padding:5px;}
+
 /********MEDIUM BUTTONS*************/
 a.medium_button{
 	-webkit-border-radius:4px;-moz-border-radius:4px;
@@ -2070,3 +2072,5 @@ a.first_day_link{border:none;}
 .button_round {width:50px;height: 50px;}
 .button_long {width:99px;height: 30px;}
 #extra_space {margin-bottom: 20px;}
+
+#policy_title {font-weight: bold;}
