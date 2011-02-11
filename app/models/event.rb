@@ -100,6 +100,7 @@ class Event < ActiveRecord::Base
     end
   end
   def edit_date_actions
+    @relative_time = 0
     if !self.edit_date_action.nil?      
       if !self.edit_date_action.eql?("move_event")
         agenda_entries.each do |agenda_entry|

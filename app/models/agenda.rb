@@ -75,6 +75,7 @@ class Agenda < ActiveRecord::Base
   end
   
   def fullcalendar_start_time(agenda_day)
+    
     if agenda_day.day == event.start_date.day
       "#{event.start_date.hour}:#{(event.start_date.min.to_f/slot).ceil*slot}"
     else
