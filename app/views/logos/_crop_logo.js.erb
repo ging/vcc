@@ -12,41 +12,37 @@
 	
 	$("div#update_logo form").ajaxForm(function(data) {
 	  
-		//$("#for_lightbox").html("");	  
-		//$("#for_lightbox").append(data);
-		
-		//$("<a href=#for_lightbox></a>").fancybox({
 		$.fancybox({
             'content' : data,
 			'hideOnContentClick' : false,
 			'frameWidth' : 200,
 			'frameHeight' : 200,
-			'callbackOnShow' : function(){
-		     /$("#for_lightbox").children().remove();
-					var size;
-					if ($("#croplogo").attr("width")<$("#croplogo").attr("height")){
-					  size = $("#croplogo").attr("width");
-					}else{
-					  size = $("#croplogo").attr("height");
-					}	    
+			//'callbackOnShow' : function(){
+			'onComplete' : function(){
+		     	$("#for_lightbox").children().remove();
+				var size;
+				if ($("#croplogo").attr("width")<$("#croplogo").attr("height")){
+				  size = $("#croplogo").attr("width");
+				}else{
+				  size = $("#croplogo").attr("height");
+				}	    
 			    $("#croplogo").Jcrop({
 			      onSelect: cropImage,
 			      onChange: cropImage,
-						bgColor : 'white',
+				  bgColor : 'white',
 			      aspectRatio: <%=aspect_ratio%>,
-						setSelect: [size/4,size/4,3*size/4,3*size/4]
-       		   });
-					if ($("#croplogo").height() +105 >200){
-					  $("#fancy_outer").height($("#croplogo").height() + 105);
-					}
-					if ($("#croplogo").width()+30 > 200){
-					  $("#lightbox-logo").width($("#croplogo").width()-18);
-						$("#fancy_outer").width($("#croplogo").width()+30);
-					}
-					$(window).resize();
+				  setSelect: [size/4,size/4,3*size/4,3*size/4]
+       		   	});
+				
+				if ($("#croplogo").height() +105 >200){
+				  $("#fancy_outer").height($("#croplogo").height() + 105);
+				}
+				if ($("#croplogo").width()+30 > 200){
+				  $("#lightbox-logo").width($("#croplogo").width()-18);
+					$("#fancy_outer").width($("#croplogo").width()+30);
+				}
+				$(window).resize();
 			  }
-
-
 		}).click(); 
   });
 	
