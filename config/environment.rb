@@ -6,6 +6,8 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+require 'thread'
+
 Rails::Initializer.run do |config|
   
 #   if Gem::VERSION >= "1.3.6" 
@@ -47,7 +49,7 @@ Rails::Initializer.run do |config|
   config.gem "chronic", :version => '0.2.3', :lib => false
   config.gem "hpricot", :version => '0.8.2', :lib => false
   config.gem "feed-normalizer", :version => '1.5.2', :lib => false
-  config.gem "rspec-rails", :version => '1.3.2', :lib => false
+  config.gem "rspec-rails", :version => '1.3.3', :lib => false
   config.gem "hoe", :version => '2.6.1', :lib => false
   config.gem "httparty", :version => '0.5.2', :lib => false
   config.gem "pdf-writer", :version => '1.1.8', :lib => false

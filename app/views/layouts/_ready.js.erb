@@ -103,18 +103,6 @@ openid = function(){
 	$(window).resize(); 
 };
 
-$("a.login_lightbox_link").livequery("click", function(){
-  var route = $(this).attr("href")
-  $(this).attr("href","javascript:void(0)");
-  $.get(route,
-        {authenticity_token: "<%=form_authenticity_token()%>"},
-        function(data){
-          $("#login_div").replaceWith(data);
-					$("#fancy_outer").height($("#login_div").height() + 50);
-					$(window).resize(); 
-        }
-      );
-});
 
 /*
  * Send Feedback

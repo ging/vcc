@@ -26,7 +26,7 @@ GEMS = {
                    "chronic -v 0.2.3",
                    "hpricot -v 0.8.2",
                    "feed-normalizer -v 1.5.2",
-                   "rspec-rails -v 1.3.2",
+                   "rspec-rails -v 1.3.3",
                    "hoe -v 2.6.1",
                    "httparty -v 0.5.2",
                    "pdf-writer -v 1.1.8",
@@ -62,7 +62,7 @@ def install_gems(set)
   puts "Installing #{ set } gems.."
   GEMS[set].each do |gem|
     puts "Installing gem: #{ gem }"
-    system "sudo gem install #{ gem } --no-ri --no-rdoc"
+    system "gem install #{ gem } --no-ri --no-rdoc"
   end
 end
 

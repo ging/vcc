@@ -82,7 +82,7 @@ class UsersController < ApplicationController
   def new
     user.openid_identifier = session[:openid_identifier]
 
-    render :partial => "register" if request.xhr?
+    #render :partial => "register" if request.xhr?
   end
   
   # POST /users
