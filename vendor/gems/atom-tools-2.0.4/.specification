@@ -1,0 +1,110 @@
+--- !ruby/object:Gem::Specification 
+name: atom-tools
+version: !ruby/object:Gem::Version 
+  hash: 7
+  prerelease: false
+  segments: 
+  - 2
+  - 0
+  - 4
+  version: 2.0.4
+platform: ruby
+authors: 
+- Brendan Taylor
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-08-15 00:00:00 +02:00
+default_executable: 
+dependencies: []
+
+description: |-
+  atom-tools is an all-in-one Atom library. It parses and builds Atom (RFC 4287) entries and feeds, and manipulates Atom Publishing Protocol (RFC 5023) Collections.
+  
+  It also comes with a set of commandline utilities for working with AtomPub Collections.
+  
+  It is not the fastest Ruby Atom library, but it is comprehensive and makes handling extensions to the Atom format very easy.
+email: whateley@gmail.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README
+files: 
+- COPYING
+- README
+- Rakefile
+- setup.rb
+- bin/atom-grep
+- bin/atom-post
+- bin/atom-purge
+- bin/atom-cp
+- test/test_constructs.rb
+- test/runtests.rb
+- test/test_feed.rb
+- test/test_protocol.rb
+- test/conformance/updated.rb
+- test/conformance/xmlnamespace.rb
+- test/conformance/title.rb
+- test/conformance/order.rb
+- test/conformance/xhtmlcontentdiv.rb
+- test/test_xml.rb
+- test/test_http.rb
+- test/test_general.rb
+- spec/entry_spec.rb
+- spec/ext_spec.rb
+- spec/spec_helper.rb
+- spec/feed_spec.rb
+- spec/fixtures/feed-w-ext.xml
+- spec/fixtures/service-w-xhtml-ns.xml
+- spec/fixtures/entry-w-ext.xml
+- spec/fixtures/service.xml
+- spec/fixtures/entry.xml
+- spec/service_spec.rb
+- lib/atom/cache.rb
+- lib/atom/feed.rb
+- lib/atom/text.rb
+- lib/atom/collection.rb
+- lib/atom/service.rb
+- lib/atom/entry.rb
+- lib/atom/tools.rb
+- lib/atom/element.rb
+- lib/atom/http.rb
+has_rdoc: true
+homepage: http://github.com/bct/atom-tools/wikis
+licenses: []
+
+post_install_message: 
+rdoc_options: []
+
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+requirements: []
+
+rubyforge_project: ibes
+rubygems_version: 1.3.7
+signing_key: 
+specification_version: 3
+summary: Tools for working with Atom Entries, Feeds and Collections.
+test_files: 
+- test/runtests.rb

@@ -1,0 +1,140 @@
+--- !ruby/object:Gem::Specification 
+name: populator
+version: !ruby/object:Gem::Version 
+  hash: 23
+  prerelease: false
+  segments: 
+  - 1
+  - 0
+  - 0
+  version: 1.0.0
+platform: ruby
+authors: 
+- Ryan Bates
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2011-01-25 00:00:00 +01:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: rspec
+  prerelease: false
+  requirement: &id001 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 11
+        segments: 
+        - 2
+        - 1
+        - 0
+        version: 2.1.0
+  type: :development
+  version_requirements: *id001
+- !ruby/object:Gem::Dependency 
+  name: rails
+  prerelease: false
+  requirement: &id002 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 1
+        segments: 
+        - 3
+        - 0
+        - 3
+        version: 3.0.3
+  type: :development
+  version_requirements: *id002
+- !ruby/object:Gem::Dependency 
+  name: mocha
+  prerelease: false
+  requirement: &id003 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 47
+        segments: 
+        - 0
+        - 9
+        - 10
+        version: 0.9.10
+  type: :development
+  version_requirements: *id003
+description: Mass populate an Active Record database.
+email: ryan@railscasts.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: []
+
+files: 
+- lib/populator/adapters/abstract.rb
+- lib/populator/adapters/oracle.rb
+- lib/populator/adapters/postgresql.rb
+- lib/populator/adapters/sqlite.rb
+- lib/populator/factory.rb
+- lib/populator/model_additions.rb
+- lib/populator/random.rb
+- lib/populator/record.rb
+- lib/populator.rb
+- spec/database.yml
+- spec/example_database.yml
+- spec/models/category.rb
+- spec/models/product.rb
+- spec/populator/factory_spec.rb
+- spec/populator/model_additions_spec.rb
+- spec/populator/random_spec.rb
+- spec/populator/record_spec.rb
+- spec/README.rdoc
+- spec/spec_helper.rb
+- CHANGELOG.rdoc
+- Gemfile
+- Gemfile.lock
+- LICENSE
+- Rakefile
+- README.rdoc
+has_rdoc: true
+homepage: http://github.com/ryanb/populator
+licenses: []
+
+post_install_message: 
+rdoc_options: []
+
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 19
+      segments: 
+      - 1
+      - 3
+      - 4
+      version: 1.3.4
+requirements: []
+
+rubyforge_project: populator
+rubygems_version: 1.3.7
+signing_key: 
+specification_version: 3
+summary: Mass populate an Active Record database.
+test_files: []
+
