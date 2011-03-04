@@ -179,6 +179,7 @@ class EventsController < ApplicationController
   # GET /events/new.xml
   def new
     @event = Event.new
+    @event.space = @space
 
     respond_to do |format|
       format.html {render "new", :layout => "new_event"}
