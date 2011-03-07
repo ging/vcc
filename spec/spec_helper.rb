@@ -5,6 +5,12 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'spec'
 require 'spec/rails'
 
+# Get rid of CSRF protection in tests
+ApplicationController.class_eval do
+  def handle_unverified_request
+  end
+end
+
 Spec::Runner.configure do |config|
   # If you're not using ActiveRecord you should remove these
   # lines, delete config/database.yml and disable :active_record
