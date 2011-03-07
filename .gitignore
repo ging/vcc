@@ -24,6 +24,7 @@ vendor/gems/rmagick-2.13.1
 vendor/gems/rcov-0.9.8
 vendor/gems/nokogiri-1.4.1
 vendor/gems/hpricot-0.8.2
+vendor/gems/ruby-debug-base-0.10.3
 public/scorm
 config/google_user_passwd.yml
 
