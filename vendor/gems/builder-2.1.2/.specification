@@ -1,0 +1,71 @@
+--- !ruby/object:Gem::Specification 
+name: builder
+version: !ruby/object:Gem::Version 
+  hash: 15
+  prerelease: false
+  segments: 
+  - 2
+  - 1
+  - 2
+  version: 2.1.2
+platform: ruby
+authors: []
+
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2011-03-07 00:00:00 +01:00
+default_executable: 
+dependencies: []
+
+description: 
+email: 
+executables: []
+
+extensions: []
+
+extra_rdoc_files: []
+
+files: 
+- lib
+- lib/blankslate.rb
+- lib/builder.rb
+- lib/builder
+has_rdoc: true
+homepage: 
+licenses: []
+
+post_install_message: 
+rdoc_options: []
+
+require_paths: 
+- bin
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.7
+signing_key: 
+specification_version: 3
+summary: 
+test_files: []
+

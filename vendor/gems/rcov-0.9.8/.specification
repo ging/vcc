@@ -105,6 +105,7 @@ rdoc_options:
 - --title
 - rcov code coverage tool
 require_paths: 
+- bin
 - lib
 required_ruby_version: !ruby/object:Gem::Requirement 
   none: false
