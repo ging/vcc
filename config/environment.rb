@@ -41,7 +41,7 @@ Rails::Initializer.run do |config|
   config.gem "rmagick", :version => '2.13.1', :lib => false
   config.gem "rake", :version => '0.8.7', :lib => false
   config.gem "vpim", :version => '0.695', :lib => false
-  config.gem "ruby-debug", :version => '0.10.3', :lib => false
+  config.gem "ruby-debug", :version => '0.10.4', :lib => false
   config.gem "ruby-openid", :version => '2.1.7', :lib => false
   config.gem "atom-tools", :version => '2.0.4', :lib => false
   config.gem "mislav-will_paginate", :version => '2.3.11', :lib => false
