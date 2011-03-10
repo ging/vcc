@@ -307,7 +307,9 @@ module EventToPdf
   
   def isSpecialTitle(entry)
     
-    if entry != nil && entry.divider != nil
+    debugger
+    
+    if entry != nil && entry.divider != nil && entry.divider != ""
       return true
     else
       return false;
