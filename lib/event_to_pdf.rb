@@ -61,6 +61,10 @@ module EventToPdf
       
       #Array of entries and dividers.
       @entries = agenda.contents_for_day(i+1)
+      
+      @entries.each do |entrie|
+        entrie.speakers = speakers(entrie)
+      end
     
       unless i == days or i == 0 or @entries.empty?
         pdf.start_new_page  
@@ -726,6 +730,24 @@ module EventToPdf
     pdf.fill_color!  Color::RGB::Black
 
   end
+
+
+  def speakers(entry)
+    
+    speakers = []
+    
+    entry.actors.each do |user|
+      speakers << user.name
+    end
+    
+    entry.speakers.each do |speaker|
+      speakers << speaker
+    end
+    
+    speakers  
+     
+  end
+  
 
   #Check if the agenda needs to be generate.
   def needsGenerate(small_version)

@@ -124,7 +124,7 @@ class AgendaEntriesController < ApplicationController
   
   # GET /agenda_entries/1/edit
   def edit
-    
+
     @agenda_entry = AgendaEntry.find(params[:id])
     @day=@agenda_entry.event_day
     
@@ -158,13 +158,15 @@ class AgendaEntriesController < ApplicationController
       if @agenda_entry.update_attributes(params[:agenda_entry])
         if params[:agenda_entry][:discard_automatic_video]=="0"
           @agenda_entry.update_attribute(:embedded_video, nil)
-        end        
+        end      
+        
         #first we delete the old performances if there were some (this is for the update operation that creates new performances in the event)
         @agenda_entry.update_attribute(:speakers,"")
         Performance.find(:all, :conditions => {:role_id => Role.find_by_name("Speaker"), :stage_id => @agenda_entry}).each do |perf| perf.delete end
         if params[:speakers] && params[:speakers][:name]
           unknown_users = create_performances_for_agenda_entry(Role.find_by_name("Speaker"), params[:speakers][:name])
-          @agenda_entry.update_attribute(:speakers, unknown_users.join(", "))
+          users = speakers(@agenda_entry,unknown_users)
+          @agenda_entry.update_attribute(:speakers, users.join(", "))
         end
         flash[:success] = t('agenda.entry.updated')
         format.html {
@@ -259,4 +261,21 @@ class AgendaEntriesController < ApplicationController
       super
     end
   end
+  
+  def speakers(entry, unknown_users)
+    
+    speakers = [];
+    
+#    entry.actors.each do |user|
+#      speakers << user.name
+#    end
+    
+    unknown_users.each do |speaker|
+      speakers << speaker
+    end
+    
+    speakers  
+     
+  end
+  
 end
