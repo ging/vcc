@@ -117,8 +117,8 @@
             <% unless at_form.object.new_record? %>
               <%=image_tag(logo_image_path(at_form.object, :size => at_form.object.thumbnail_size)) %>
               <%=at_form.object.filename %>
-              <%= at_form.check_box '_delete' %>
-              <%= at_form.label '_delete', t('delete.one') %>
+              <%= at_form.check_box '_destroy' %>
+              <%= at_form.label '_destroy', t('delete.one') %>
             <% end %>
           <%end %>
           </br>
