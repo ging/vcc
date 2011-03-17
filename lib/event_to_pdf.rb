@@ -8,9 +8,9 @@ module EventToPdf
   #Method to generate the agenda of the event in PDF.
   def to_pdf(small_version)
       
-#    unless needsGenerate(small_version)
-#      return
-#    end
+    unless needsGenerate(small_version)
+      return
+    end
        
     pdf = PDF::Writer.new(:paper => "A4", :orientation => :portrait )
    
@@ -82,7 +82,8 @@ module EventToPdf
         if entries == @entries_array[0]
           
           pdf.fill_color!  Color::RGB::Black
-          pdf.text "#{date}", :font_size => 14, :justification => :center
+          pdf.text text_to_iso("#{date}"), :font_size => 14, :justification => :center
+          
           
           unless isSpecialTitle(entries[0])
             pdf.text " ", :font_size => 5, :justification => :center         
