@@ -553,18 +553,21 @@ our_close = function(){
 };
 
 
-<%if @event.show_recording_box? && @event.uses_conference_manager? && @event.authorize?(:update, :to => current_user) %>
-  <%@event.agenda.agenda_entries.each do |entry|%>
-    <%if entry.session_status==AgendaEntry::SESSION_STATUS[:init]%>
-	  $("#button_start_rec<%=entry.id%>").show();
-    <%elsif entry.session_status==AgendaEntry::SESSION_STATUS[:recording]%>
-	  $("#button_pause_rec<%=entry.id%>").show();
-	<%elsif entry.session_status==AgendaEntry::SESSION_STATUS[:recorded]%>	  
-	  $("#button_continue_rec<%=entry.id%>").show();
-	  $("#button_publish_rec<%=entry.id%>").show();
+<%begin%>
+	<%if @event.show_recording_box? && @event.uses_conference_manager? && @event.authorize?(:update, :to => current_user) %>
+	  <%@event.agenda.agenda_entries.each do |entry|%>
+			<%if entry.session_status==AgendaEntry::SESSION_STATUS[:init]%>
+			  $("#button_start_rec<%=entry.id%>").show();
+		    <%elsif entry.session_status==AgendaEntry::SESSION_STATUS[:recording]%>
+			  $("#button_pause_rec<%=entry.id%>").show();
+			<%elsif entry.session_status==AgendaEntry::SESSION_STATUS[:recorded]%>	  
+			  $("#button_continue_rec<%=entry.id%>").show();
+			  $("#button_publish_rec<%=entry.id%>").show();
+			<%end%>
+	  <%end%>
+	  //EXAMPLE: var entries = {123:"Recording", 124: "Recorded", 125: "Published", 126: "Init"}
+	  <%=generate_entries_javascript_array(@event)%>  
 	<%end%>
-  <%end%>
-  //EXAMPLE: var entries = {123:"Recording", 124: "Recorded", 125: "Published", 126: "Init"}
-  <%=generate_entries_javascript_array(@event)%>  
-<%end%>
+<%rescue%>
 
+<%end%>
