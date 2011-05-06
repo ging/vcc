@@ -174,8 +174,8 @@
 			              <%= at_form.label '_video_name', t('video_attachment.video_name') %>:
                           <%= at_form.object.filename %>
 
-                          <%= at_form.check_box '_delete' %>
-                          <%= at_form.label '_delete', t('video_attachment.delete') %>
+                          <%= at_form.check_box '_destroy' %>
+                          <%= at_form.label '_destroy', t('video_attachment.delete') %>
 						  <%=image_tag('icons/help.png',:class=>'icon',:tooltip=>t('tooltip.video_upload_explanation')) %>
 
                         <% end %>

@@ -163,14 +163,14 @@ class AgendaEntry < ActiveRecord::Base
   end
   
   def recording?
-    if event.recording_type == Event::RECORDING_TYPE.index(:manual)
-      return session_status==SESSION_STATUS[:published]
-    elsif video_type == VIDEO_TYPE.index(:automatic)
-      return past?
-    elsif video_type == VIDEO_TYPE.index(:embedded)
+    if video_type == VIDEO_TYPE.index(:embedded)
       return embedded_video.present? && embedded_video != ""
     elsif video_type == VIDEO_TYPE.index(:uploaded)
       return true
+    elsif event.recording_type == Event::RECORDING_TYPE.index(:manual)
+      return session_status==SESSION_STATUS[:published]
+    elsif video_type == VIDEO_TYPE.index(:automatic)
+      return past?
     else 
       return false
     end

@@ -17,7 +17,7 @@
 
 class AttachmentVideo < ActiveRecord::Base
   SWF_URL       = 'http://stream.globalplaza.org/reproductor/mediaplayer.swf'
-  STREAMING_URL = 'rtmp://stream.globalplaza.org/venusStore/_definst_/'
+  STREAMING_URL = 'rtmp://stream.globalplaza.org/venusStore/_definst_/uploaded/'
   
   belongs_to :space
   belongs_to :event
@@ -40,7 +40,7 @@ class AttachmentVideo < ActiveRecord::Base
    
   def embed_html(width, height)
     <<-HTML
-<embed name="player" src="#{ SWF_URL }?id=#{ filename }&amp;searchbar=false&amp;displayheight=356&amp;displaywidth=475&amp;autostart=true&amp;bufferlength=3&amp;file=#{ STREAMING_URL }" allowfullscreen="true" wmode="transparent" height="#{height}" width="#{width}">"
+<embed name="player" src="#{ SWF_URL }?id=#{ id_file }&amp;searchbar=false&amp;displayheight=#{height}&amp;displaywidth=#{width}&amp;autostart=true&amp;bufferlength=3&amp;file=#{ STREAMING_URL }" allowfullscreen="true" wmode="transparent" height="#{height}" width="#{width}">
     HTML
   end
    
@@ -56,4 +56,8 @@ class AttachmentVideo < ActiveRecord::Base
     version_child_id.nil?
   end
 
+  def id_file
+    filename =~ /(.*)\.\w*$/
+    $1
+  end
 end

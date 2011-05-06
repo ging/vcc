@@ -201,7 +201,9 @@ module ConferenceManager
       #it can be any in SESSION_STATUS
       def session_status
         cm_status = status
-        cm_status.attributes["status"]
+        if cm_status
+          cm_status.attributes["status"]
+        end
       end
       
       #method to start the recording

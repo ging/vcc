@@ -130,6 +130,15 @@ class EventsController < ApplicationController
       if params[:show_video].class == String
         @display_entry = AgendaEntry.find(params[:show_video].to_i)
       elsif params[:edit_video].class == String
+        agenda_entry = AgendaEntry.find(params[:edit_video].to_i)
+        #XXX we should check the authorization for this
+        if logged_in? && agenda_entry.authorize?(:update, :to => current_user)
+          @display_entry = agenda_entry
+        else
+          params[:show_video]=params[:edit_video]
+          params[:edit_video]=nil
+          @display_entry = AgendaEntry.find(params[:show_video].to_i)
+        end
         @display_entry = AgendaEntry.find(params[:edit_video].to_i)
       else
         @display_entry = nil

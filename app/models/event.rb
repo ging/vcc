@@ -648,7 +648,7 @@ class Event < ActiveRecord::Base
   
   def unique_pageviews
     # Use only the canonical aggregated url of the event (all views have been previously added here in the rake task)
-    corresponding_statistics = Statistic.find(:all, :conditions => ['url LIKE ?', '/spaces/' + self.space.permalink + '/events/'+ self.permalink])
+    corresponding_statistics = Statistic.find(:all, :conditions => ['url LIKE ?', '/spaces/' + self.space.permalink.gsub("_", '\_') + '/events/'+ self.permalink.gsub("_", '\_')])
     if corresponding_statistics.size == 0
       return 0
     elsif corresponding_statistics.size == 1
