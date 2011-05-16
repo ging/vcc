@@ -32,6 +32,7 @@ set(:branch) { ENV['BRANCH'] || fetch(:branches)[fetch(:environment)]}
 
 before 'deploy:migrations', 'vcc:info'
 before 'deploy:setup', 'vcc:info'
+after 'deploy:update_code', 'vcc:build_gems'
 after 'deploy:update_code', 'deploy:link_files'
 after 'deploy:update_code', 'deploy:fix_file_permissions'
 after 'deploy:update_code', 'deploy:copy_openfire_code'
@@ -104,6 +105,10 @@ namespace(:vcc) do
   task :info do
     puts "Deploying SERVER = #{ ENV['SERVER'] || fetch(:servers)[fetch(:environment)]}"
     puts "Deploying BRANCH = #{ ENV['BRANCH'] || fetch(:branches)[fetch(:environment)]}"
+  end
+
+  task :build_gems do
+    run "rake -f #{release_path}/Rakefile gems:build"
   end
 
    task :commit_remote_translations do

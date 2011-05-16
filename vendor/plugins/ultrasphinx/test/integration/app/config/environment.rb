@@ -7,7 +7,7 @@ Rails::Initializer.run do |config|
     config.action_controller.session = {:session_key => '_app_session', :secret => '22cde4d5c1a61ba69a81795322cde4d5c1a61ba69a817953'}
   end
   
-  config.load_paths << "#{RAILS_ROOT}/app/models/person" # moduleless model path
+  config.autoload_paths << "#{RAILS_ROOT}/app/models/person" # moduleless model path
 end
 
 Ultrasphinx::Search.client_options["finder_methods"].unshift("custom_find")
