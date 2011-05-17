@@ -51,6 +51,10 @@ class Attachment < ActiveRecord::Base
   authorizing do |agent, permission|
     false unless space.repository? || ( permission == :read && ! new_record? )
   end
+  
+  authorizing do |agent, permission|
+    false if space.disabled?
+  end
 
   acts_as_resource :has_media => :attachment_fu
   acts_as_taggable

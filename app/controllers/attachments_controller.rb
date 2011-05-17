@@ -36,6 +36,7 @@ class AttachmentsController < ApplicationController
     end
   end
 
+
   def edit_tags
     @attachment = Attachment.find(params[:id])
   end
